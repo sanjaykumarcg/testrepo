@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="app629-server-0.0.1-SNAPSHOT">
+        <wb-resource deploy-path="/" source-path="/eclipse-target/m2e-wtp/web-resources"/>
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <dependent-module archiveName="app629-core-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/app629-core/app629-core">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="app629-api-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/app629-api/app629-api">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="oasp4j-rest-3.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/oasp4j-rest/oasp4j-rest">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="oasp4j-service-3.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/oasp4j-service/oasp4j-service">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="oasp4j-json-3.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/oasp4j-json/oasp4j-json">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="oasp4j-logging-3.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/oasp4j-logging/oasp4j-logging">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="oasp4j-beanmapping-3.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/oasp4j-beanmapping/oasp4j-beanmapping">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="oasp4j-security-3.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/oasp4j-security/oasp4j-security">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="oasp4j-starter-cxf-client-rest-3.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/oasp4j-starter-cxf-client-rest/oasp4j-starter-cxf-client-rest">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="oasp4j-starter-cxf-client-3.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/oasp4j-starter-cxf-client/oasp4j-starter-cxf-client">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="oasp4j-cxf-client-3.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/oasp4j-cxf-client/oasp4j-cxf-client">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="oasp4j-cxf-client-rest-3.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/oasp4j-cxf-client-rest/oasp4j-cxf-client-rest">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="oasp4j-starter-cxf-client-ws-3.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/oasp4j-starter-cxf-client-ws/oasp4j-starter-cxf-client-ws">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="oasp4j-cxf-client-ws-3.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/oasp4j-cxf-client-ws/oasp4j-cxf-client-ws">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="oasp4j-starter-cxf-server-rest-3.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/oasp4j-starter-cxf-server-rest/oasp4j-starter-cxf-server-rest">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="oasp4j-starter-cxf-server-3.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/oasp4j-starter-cxf-server/oasp4j-starter-cxf-server">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="oasp4j-cxf-server-3.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/oasp4j-cxf-server/oasp4j-cxf-server">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="oasp4j-cxf-server-rest-3.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/oasp4j-cxf-server-rest/oasp4j-cxf-server-rest">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="oasp4j-starter-cxf-server-ws-3.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/oasp4j-starter-cxf-server-ws/oasp4j-starter-cxf-server-ws">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="oasp4j-cxf-server-ws-3.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/oasp4j-cxf-server-ws/oasp4j-cxf-server-ws">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="oasp4j-jpa-envers-3.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/oasp4j-jpa-envers/oasp4j-jpa-envers">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="oasp4j-jpa-3.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/oasp4j-jpa/oasp4j-jpa">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="oasp4j-basic-3.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/oasp4j-basic/oasp4j-basic">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="oasp4j-web-3.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/oasp4j-web/oasp4j-web">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="app629-server"/>
+        <property name="java-output-path" value="/app629-server/eclipse-target/classes"/>
+    </wb-module>
+</project-modules>
