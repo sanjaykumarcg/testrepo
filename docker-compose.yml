@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  java:
+    build: 'java/'
+    restart: always
+    container_name: 'my_java'
+    networks:
+      - test-app629
+networks:
+  test-app629:
+    driver: bridge
