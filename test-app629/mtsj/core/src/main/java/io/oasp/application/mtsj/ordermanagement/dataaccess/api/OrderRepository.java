@@ -1,0 +1,121 @@
+package io.oasp.application.mtsj.ordermanagement.dataaccess.api;
+
+import static com.querydsl.core.alias.Alias.$;
+
+import java.util.Iterator;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Order;
+
+import com.devonfw.module.jpa.dataaccess.api.QueryUtil;
+import com.devonfw.module.jpa.dataaccess.api.data.DefaultRepository;
+import com.querydsl.core.alias.Alias;
+import com.querydsl.jpa.impl.JPAQuery;
+
+import io.oasp.application.mtsj.ordermanagement.logic.api.to.OrderSearchCriteriaTo;
+
+/**
+ * @author VAPADWAL
+ *
+ */
+public interface OrderRepository extends DefaultRepository<OrderEntity> {
+
+  default Page<OrderEntity> findOrders(OrderSearchCriteriaTo criteria) {
+
+    OrderEntity alias = newDslAlias();
+    JPAQuery<OrderEntity> query = newDslQuery(alias);
+
+    Long booking = criteria.getBookingId();
+    if (booking != null && alias.getBooking() != null) {
+      query.where(Alias.$(alias.getBooking().getId()).eq(booking));
+    }
+    Long invitedGuest = criteria.getInvitedGuestId();
+    if (invitedGuest != null && alias.getInvitedGuest() != null) {
+      query.where(Alias.$(alias.getInvitedGuest().getId()).eq(invitedGuest));
+    }
+    String hostToken = criteria.getHostToken();
+    if (hostToken != null && alias.getHost() != null) {
+      QueryUtil.get().whereString(query, $(alias.getBooking().getBookingToken()), hostToken,
+          criteria.getHostTokenOption());
+    }
+
+    String email = criteria.getEmail();
+    if ((email != null) && !email.isEmpty()) {
+      QueryUtil.get().whereString(query, $(alias.getBooking().getEmail()), email, criteria.getEmailOption());
+    }
+
+    String bookingToken = criteria.getBookingToken();
+    if ((bookingToken != null) && !bookingToken.isEmpty()) {
+      QueryUtil.get().whereString(query, $(alias.getBooking().getBookingToken()), email,
+          criteria.getBookingTokenOption());
+    }
+
+    addOrderBy(query, alias, criteria.getPageable().getSort());
+
+    return QueryUtil.get().findPaginated(criteria.getPageable(), query, false);
+  }
+
+  /**
+   * Add sorting to the given query on the given alias
+   *
+   * @param query to add sorting to
+   * @param alias to retrieve columns from for sorting
+   * @param sort specification of sorting
+   */
+  public default void addOrderBy(JPAQuery<OrderEntity> query, OrderEntity alias, Sort sort) {
+
+    if (sort != null && sort.isSorted()) {
+      Iterator<Order> it = sort.iterator();
+      while (it.hasNext()) {
+        Order next = it.next();
+        switch (next.getProperty()) {
+          case "idBooking":
+            if (next.isAscending()) {
+              query.orderBy($(alias.getBookingId()).asc());
+            } else {
+              query.orderBy($(alias.getBookingId()).desc());
+            }
+            break;
+          case "idInvitedGuest":
+            if (next.isAscending()) {
+              query.orderBy($(alias.getInvitedGuestId()).asc());
+            } else {
+              query.orderBy($(alias.getInvitedGuestId()).desc());
+            }
+            break;
+          case "hostToken":
+            if (next.isAscending()) {
+              query.orderBy($(alias.getBooking().getBookingToken()).toLowerCase().asc());
+            } else {
+              query.orderBy($(alias.getBooking().getBookingToken()).toLowerCase().desc());
+            }
+            break;
+          case "bookingToken":
+            if (next.isAscending()) {
+              query.orderBy($(alias.getBooking().getBookingToken()).toLowerCase().asc());
+            } else {
+              query.orderBy($(alias.getBooking().getBookingToken()).toLowerCase().desc());
+            }
+            break;
+          case "email":
+            if (next.isAscending()) {
+              query.orderBy($(alias.getBooking().getEmail()).toLowerCase().asc());
+            } else {
+              query.orderBy($(alias.getBooking().getEmail()).toLowerCase().desc());
+            }
+            break;
+          case "bookingDate":
+            if (next.isAscending()) {
+              query.orderBy($(alias.getBooking().getBookingDate()).asc());
+            } else {
+              query.orderBy($(alias.getBooking().getBookingDate()).desc());
+            }
+            break;
+          default:
+            throw new IllegalArgumentException("Sorted by the unknown property '" + next.getProperty() + "'");
+        }
+      }
+    }
+  }
+}
