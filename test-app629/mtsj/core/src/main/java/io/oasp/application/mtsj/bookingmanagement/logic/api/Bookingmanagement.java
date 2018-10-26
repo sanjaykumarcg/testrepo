@@ -27,6 +27,14 @@ public interface Bookingmanagement {
   BookingCto findBooking(Long id);
 
   /**
+   * Returns Booking by token
+   *
+   * @param token
+   * @return
+   */
+  BookingCto findByToken(String token);
+
+  /**
    * Returns a paginated list of Bookings matching the search criteria. Needs Authorization.
    *
    * @param criteria the {@link BookingSearchCriteriaTo}.

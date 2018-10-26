@@ -48,6 +48,7 @@ public interface InvitedGuestRepository extends DefaultRepository<InvitedGuestEn
       query.where(Alias.$(alias.getModificationDate()).eq(modificationDate));
     }
     addOrderBy(query, alias, criteria.getPageable().getSort());
+
     return QueryUtil.get().findPaginated(criteria.getPageable(), query, false);
   }
 

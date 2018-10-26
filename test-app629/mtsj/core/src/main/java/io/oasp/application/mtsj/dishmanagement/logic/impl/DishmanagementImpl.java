@@ -1,6 +1,5 @@
 package io.oasp.application.mtsj.dishmanagement.logic.impl;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -153,40 +152,6 @@ public class DishmanagementImpl extends AbstractComponentFacade implements Dishm
     }
 
     Pageable pagResultTo = PageRequest.of(criteria.getPageable().getPageNumber(), ctos.size());
-    Page<DishCto> pagListTo = new PageImpl<>(ctos, pagResultTo, pagResultTo.getPageSize());
-    return pagListTo;
-
-  }
-
-  public Page<DishCto> findDishCtos1() {
-
-    // criteria.limitMaximumPageSize(MAXIMUM_HIT_LIMIT);
-    List<DishCto> ctos = new ArrayList<>();
-    // Page<DishEntity> searchResult = getDishDao().findDishs(criteria);
-
-    // for (DishEntity dish : searchResult.getContent()) {
-    DishCto cto = new DishCto();
-    DishEto eto = new DishEto();
-    eto.setId(11L);
-    eto.setDescription("new Dish");
-    eto.setImageId(12L);
-    eto.setName("New Dish 1");
-    eto.setPrice(new BigDecimal(12));
-    eto.setRevision(12);
-    cto.setDish(eto);
-    ImageEto iEto = new ImageEto();
-    iEto.setId(12L);
-    iEto.setContent("Image Contest");
-    iEto.setMimeType("new");
-    iEto.setName("name");
-
-    cto.setImage(iEto);
-    // cto.setCategories(getBeanMapper().mapList(dish.getCategories(), CategoryEto.class));
-    // cto.setExtras(getBeanMapper().mapList(dish.getExtras(), IngredientEto.class));
-    ctos.add(cto);
-    // }
-
-    Pageable pagResultTo = PageRequest.of(1, 5);
     Page<DishCto> pagListTo = new PageImpl<>(ctos, pagResultTo, pagResultTo.getPageSize());
     return pagListTo;
 

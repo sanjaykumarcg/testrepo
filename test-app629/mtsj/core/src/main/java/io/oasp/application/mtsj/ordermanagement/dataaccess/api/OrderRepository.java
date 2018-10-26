@@ -3,10 +3,13 @@ package io.oasp.application.mtsj.ordermanagement.dataaccess.api;
 import static com.querydsl.core.alias.Alias.$;
 
 import java.util.Iterator;
+import java.util.List;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Order;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import com.devonfw.module.jpa.dataaccess.api.QueryUtil;
 import com.devonfw.module.jpa.dataaccess.api.data.DefaultRepository;
@@ -20,6 +23,10 @@ import io.oasp.application.mtsj.ordermanagement.logic.api.to.OrderSearchCriteria
  *
  */
 public interface OrderRepository extends DefaultRepository<OrderEntity> {
+
+  @Query("SELECT orders FROM OrderEntity orders" //
+      + " WHERE orders.booking.id = :idBooking")
+  List<OrderEntity> findOrders(@Param("idBooking") Long idBooking);
 
   default Page<OrderEntity> findOrders(OrderSearchCriteriaTo criteria) {
 
@@ -50,7 +57,6 @@ public interface OrderRepository extends DefaultRepository<OrderEntity> {
       QueryUtil.get().whereString(query, $(alias.getBooking().getBookingToken()), email,
           criteria.getBookingTokenOption());
     }
-
     addOrderBy(query, alias, criteria.getPageable().getSort());
 
     return QueryUtil.get().findPaginated(criteria.getPageable(), query, false);

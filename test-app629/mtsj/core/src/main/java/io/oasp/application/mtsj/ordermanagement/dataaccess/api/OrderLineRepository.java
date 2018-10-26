@@ -3,10 +3,13 @@ package io.oasp.application.mtsj.ordermanagement.dataaccess.api;
 import static com.querydsl.core.alias.Alias.$;
 
 import java.util.Iterator;
+import java.util.List;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Order;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import com.devonfw.module.jpa.dataaccess.api.QueryUtil;
 import com.devonfw.module.jpa.dataaccess.api.data.DefaultRepository;
@@ -20,6 +23,10 @@ import io.oasp.application.mtsj.ordermanagement.logic.api.to.OrderLineSearchCrit
  *
  */
 public interface OrderLineRepository extends DefaultRepository<OrderLineEntity> {
+
+  @Query("SELECT orderLines FROM OrderLineEntity orderLines" //
+      + " WHERE orderLines.order.id = :id")
+  List<OrderLineEntity> findOrderLines(@Param("id") Long id);
 
   default Page<OrderLineEntity> findOrderLines(OrderLineSearchCriteriaTo criteria) {
 
@@ -42,8 +49,8 @@ public interface OrderLineRepository extends DefaultRepository<OrderLineEntity> 
     if ((comment != null) && !comment.isEmpty()) {
       QueryUtil.get().whereString(query, $(alias.getComment()), comment, criteria.getCommentOption());
     }
-
-    addOrderBy(query, alias, criteria.getPageable().getSort());
+    if (criteria.getPageable() != null)
+      addOrderBy(query, alias, criteria.getPageable().getSort());
 
     return QueryUtil.get().findPaginated(criteria.getPageable(), query, false);
   }

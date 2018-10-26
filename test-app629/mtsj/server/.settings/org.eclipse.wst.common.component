@@ -13,6 +13,9 @@
         <dependent-module archiveName="devon4j-basic-3.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/devon4j-basic/devon4j-basic">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="devon4j-jpa-envers-3.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/devon4j-jpa-envers/devon4j-jpa-envers">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <dependent-module archiveName="devon4j-security-3.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/devon4j-security/devon4j-security">
             <dependency-type>uses</dependency-type>
         </dependent-module>
@@ -34,6 +37,12 @@
         <dependent-module archiveName="devon4j-web-3.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/devon4j-web/devon4j-web">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="devon4j-jpa-3.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/devon4j-jpa/devon4j-jpa">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="devon4j-jpa-dao-3.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/devon4j-jpa-dao/devon4j-jpa-dao">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <dependent-module archiveName="devon4j-jpa-basic-3.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/devon4j-jpa-basic/devon4j-jpa-basic">
             <dependency-type>uses</dependency-type>
         </dependent-module>
@@ -44,6 +53,9 @@
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="mtsj-batch-0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/mtsj-batch/mtsj-batch">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="devon4j-batch-3.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/devon4j-batch/devon4j-batch">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <property name="context-root" value="mythaistar"/>

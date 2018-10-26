@@ -8,6 +8,8 @@ import java.util.Iterator;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Order;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import com.devonfw.module.jpa.dataaccess.api.QueryUtil;
 import com.devonfw.module.jpa.dataaccess.api.data.DefaultRepository;
@@ -22,6 +24,10 @@ import io.oasp.application.mtsj.bookingmanagement.logic.api.to.BookingSearchCrit
  *
  */
 public interface BookingRepository extends DefaultRepository<BookingEntity> {
+
+  @Query("SELECT booking FROM BookingEntity booking" //
+      + " WHERE booking.bookingToken = :token")
+  BookingEntity findByToken(@Param("token") String token);
 
   default Page<BookingEntity> findBookings(BookingSearchCriteriaTo criteria) {
 
@@ -75,6 +81,7 @@ public interface BookingRepository extends DefaultRepository<BookingEntity> {
       query.where(Alias.$(alias.getTable().getId()).eq(table));
     }
     addOrderBy(query, alias, criteria.getPageable().getSort());
+
     return QueryUtil.get().findPaginated(criteria.getPageable(), query, false);
   }
 

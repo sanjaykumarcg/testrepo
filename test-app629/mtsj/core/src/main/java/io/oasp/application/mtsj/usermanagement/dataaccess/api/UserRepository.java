@@ -42,7 +42,6 @@ public interface UserRepository extends DefaultRepository<UserEntity> {
     if (userRole != null && alias.getUserRole() != null) {
       query.where(Alias.$(alias.getUserRole().getId()).eq(userRole));
     }
-
     addOrderBy(query, alias, criteria.getPageable().getSort());
 
     return QueryUtil.get().findPaginated(criteria.getPageable(), query, false);

@@ -63,8 +63,6 @@ public interface Dishmanagement {
    */
   Page<DishCto> findDishCtos(DishSearchCriteriaTo criteria);
 
-  Page<DishCto> findDishCtos1();
-
   /**
    * Deletes a dish from the database by its id 'dishId'.
    *

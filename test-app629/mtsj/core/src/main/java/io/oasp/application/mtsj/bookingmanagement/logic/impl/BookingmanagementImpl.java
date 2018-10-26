@@ -116,6 +116,20 @@ public class BookingmanagementImpl extends AbstractComponentFacade implements Bo
   }
 
   @Override
+  public BookingCto findByToken(String token) {
+
+    LOG.debug("Get Booking with id {} from database.", token);
+    BookingEntity entity = getBookingDao().findByToken(token);
+    BookingCto cto = new BookingCto();
+    cto.setBooking(getBeanMapper().map(entity, BookingEto.class));
+    cto.setTable(getBeanMapper().map(entity.getTable(), TableEto.class));
+    cto.setOrder(getBeanMapper().map(entity.getOrder(), OrderEto.class));
+    cto.setInvitedGuests(getBeanMapper().mapList(entity.getInvitedGuests(), InvitedGuestEto.class));
+    cto.setOrders(getBeanMapper().mapList(entity.getOrders(), OrderEto.class));
+    return cto;
+  }
+
+  @Override
   @RolesAllowed(Roles.WAITER)
   public Page<BookingCto> findBookingsByPost(BookingSearchCriteriaTo criteria) {
 

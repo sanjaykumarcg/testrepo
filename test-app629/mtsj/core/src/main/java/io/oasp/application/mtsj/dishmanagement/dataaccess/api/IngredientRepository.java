@@ -40,7 +40,6 @@ public interface IngredientRepository extends DefaultRepository<IngredientEntity
     if (price != null) {
       query.where(Alias.$(alias.getPrice()).eq(price));
     }
-
     addOrderBy(query, alias, criteria.getPageable().getSort());
 
     return QueryUtil.get().findPaginated(criteria.getPageable(), query, false);

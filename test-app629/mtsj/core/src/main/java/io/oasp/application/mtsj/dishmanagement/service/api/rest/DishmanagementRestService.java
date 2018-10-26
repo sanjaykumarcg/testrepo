@@ -110,11 +110,6 @@ public interface DishmanagementRestService {
   @CrossOrigin
   public Page<DishCto> findDishsByPost(DishSearchCriteriaTo searchCriteriaTo);
 
-  @Path("/dish/search1")
-  @POST
-  @CrossOrigin
-  public Page<DishCto> findDishsByPost1();
-
   /**
    * Delegates to {@link Dishmanagement#findIngredient}.
    *

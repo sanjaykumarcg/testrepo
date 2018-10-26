@@ -35,8 +35,7 @@ public interface DishRepository extends DefaultRepository<DishEntity> {
     if (price != null) {
       query.where(Alias.$(alias.getPrice()).lt(price));
     }
-    if (criteria.getPageable() != null)
-      addOrderBy(query, alias, criteria.getPageable().getSort());
+    addOrderBy(query, alias, criteria.getPageable().getSort());
 
     return QueryUtil.get().findPaginated(criteria.getPageable(), query, false);
   }

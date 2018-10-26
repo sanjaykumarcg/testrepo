@@ -155,6 +155,36 @@ public class OrdermanagementImpl extends AbstractComponentFacade implements Orde
     return pagListTo;
   }
 
+  // @Override//TODO need to wrtie interface method
+  public List<OrderCto> findOrders(Long idBooking) {
+
+    // criteria.limitMaximumPageSize(MAXIMUM_HIT_LIMIT);
+    List<OrderCto> ctos = new ArrayList<>();
+    List<OrderEntity> orders = getOrderDao().findOrders(idBooking);
+    for (OrderEntity order : orders) {
+      OrderCto cto = new OrderCto();
+      cto.setBooking(getBeanMapper().map(order.getBooking(), BookingEto.class));
+      cto.setHost(getBeanMapper().map(order.getHost(), BookingEto.class));
+      cto.setInvitedGuest(getBeanMapper().map(order.getInvitedGuest(), InvitedGuestEto.class));
+      cto.setOrder(getBeanMapper().map(order, OrderEto.class));
+      cto.setOrderLines(getBeanMapper().mapList(order.getOrderLines(), OrderLineCto.class));
+      List<OrderLineCto> orderLinesCto = new ArrayList<>();
+      for (OrderLineEntity orderLine : order.getOrderLines()) {
+        OrderLineCto orderLineCto = new OrderLineCto();
+        orderLineCto.setDish(getBeanMapper().map(orderLine.getDish(), DishEto.class));
+        orderLineCto.setExtras(getBeanMapper().mapList(orderLine.getExtras(), IngredientEto.class));
+        orderLineCto.setOrderLine(getBeanMapper().map(orderLine, OrderLineEto.class));
+        orderLinesCto.add(orderLineCto);
+      }
+      cto.setOrderLines(orderLinesCto);
+      ctos.add(cto);
+    }
+
+    // Pageable pagResultTo = PageRequest.of(criteria.getPageable().getPageNumber(), ctos.size());
+    // Page<OrderCto> pagListTo = new PageImpl<>(ctos, pagResultTo, pagResultTo.getPageSize());
+    return ctos;
+  }
+
   @Override
   public boolean deleteOrder(Long orderId) {
 
@@ -281,7 +311,7 @@ public class OrdermanagementImpl extends AbstractComponentFacade implements Orde
 
     // BOOKING VALIDATION
     if (getOrderType(token) == BookingType.COMMON) {
-      BookingCto booking = getBooking(token);
+      BookingCto booking = getBookingbyToken(token);
       if (booking == null) {
         throw new NoBookingException();
       }
@@ -328,11 +358,17 @@ public class OrdermanagementImpl extends AbstractComponentFacade implements Orde
     return booking.getContent().isEmpty() ? null : booking.getContent().get(0);
   }
 
+  private BookingCto getBookingbyToken(String token) {
+
+    return this.bookingManagement.findByToken(token);
+  }
+
   private List<OrderCto> getBookingOrders(Long idBooking) {
 
-    OrderSearchCriteriaTo criteria = new OrderSearchCriteriaTo();
-    criteria.setBookingId(idBooking);
-    return findOrderCtos(criteria).getContent();
+    // OrderSearchCriteriaTo criteria = new OrderSearchCriteriaTo();
+    // criteria.setBookingId(idBooking);
+
+    return findOrders(idBooking);
   }
 
   private InvitedGuestEto getInvitedGuest(String token) {
@@ -373,9 +409,9 @@ public class OrdermanagementImpl extends AbstractComponentFacade implements Orde
 
   private String getContentFormatedWithCost(OrderEntity order) {
 
-    OrderLineSearchCriteriaTo criteria = new OrderLineSearchCriteriaTo();
-    criteria.setOrderId(order.getId());
-    List<OrderLineEntity> orderLines = this.orderLineDao.findOrderLines(criteria).getContent();
+    // OrderLineSearchCriteriaTo criteria = new OrderLineSearchCriteriaTo();
+    // criteria.setOrderId(order.getId());
+    List<OrderLineEntity> orderLines = this.orderLineDao.findOrderLines(order.getId());
 
     StringBuilder sb = new StringBuilder();
     sb.append("\n");
@@ -419,7 +455,7 @@ public class OrdermanagementImpl extends AbstractComponentFacade implements Orde
 
     // Get the Host email
     if (getOrderType(token) == BookingType.COMMON) {
-      BookingCto booking = getBooking(token);
+      BookingCto booking = getBookingbyToken(token);
       if (booking == null) {
         throw new NoBookingException();
       }

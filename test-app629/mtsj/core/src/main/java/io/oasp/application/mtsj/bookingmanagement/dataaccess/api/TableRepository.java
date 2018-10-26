@@ -31,7 +31,9 @@ public interface TableRepository extends DefaultRepository<TableEntity> {
       query.where(Alias.$(alias.getSeatsNumber()).eq(seatsNumber));
     }
     addOrderBy(query, alias, criteria.getPageable().getSort());
+
     return QueryUtil.get().findPaginated(criteria.getPageable(), query, false);
+
   }
 
   /**

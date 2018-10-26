@@ -74,12 +74,6 @@ public class DishmanagementRestServiceImpl implements DishmanagementRestService 
   }
 
   @Override
-  public Page<DishCto> findDishsByPost1() {
-
-    return this.dishmanagement.findDishCtos1();
-  }
-
-  @Override
   public IngredientEto getIngredient(long id) {
 
     return this.dishmanagement.findIngredient(id);
