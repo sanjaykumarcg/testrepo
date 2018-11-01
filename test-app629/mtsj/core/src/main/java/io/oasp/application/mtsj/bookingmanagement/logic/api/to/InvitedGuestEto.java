@@ -2,8 +2,9 @@ package io.oasp.application.mtsj.bookingmanagement.logic.api.to;
 
 import java.sql.Timestamp;
 
+import com.devonfw.module.basic.common.api.to.AbstractEto;
+
 import io.oasp.application.mtsj.bookingmanagement.common.api.InvitedGuest;
-import io.oasp.application.mtsj.general.common.api.to.AbstractEto;
 
 /**
  * Entity transport object of InvitedGuest

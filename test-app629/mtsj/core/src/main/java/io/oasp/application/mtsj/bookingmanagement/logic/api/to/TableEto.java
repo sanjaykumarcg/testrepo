@@ -1,7 +1,8 @@
 package io.oasp.application.mtsj.bookingmanagement.logic.api.to;
 
+import com.devonfw.module.basic.common.api.to.AbstractEto;
+
 import io.oasp.application.mtsj.bookingmanagement.common.api.Table;
-import io.oasp.application.mtsj.general.common.api.to.AbstractEto;
 
 /**
  * Entity transport object of Table
@@ -15,7 +16,7 @@ public class TableEto extends AbstractEto implements Table {
   @Override
   public Integer getSeatsNumber() {
 
-    return seatsNumber;
+    return this.seatsNumber;
   }
 
   @Override

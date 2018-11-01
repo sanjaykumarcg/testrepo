@@ -2,9 +2,10 @@ package io.oasp.application.mtsj.usermanagement.logic.api.to;
 
 import java.util.List;
 
+import com.devonfw.module.basic.common.api.to.AbstractCto;
+
 import io.oasp.application.mtsj.bookingmanagement.logic.api.to.BookingEto;
 import io.oasp.application.mtsj.dishmanagement.logic.api.to.DishEto;
-import io.oasp.application.mtsj.general.common.api.to.AbstractCto;
 
 /**
  * Composite transport object of User
@@ -23,7 +24,7 @@ public class UserCto extends AbstractCto {
 
   public UserEto getUser() {
 
-    return user;
+    return this.user;
   }
 
   public void setUser(UserEto user) {
@@ -33,7 +34,7 @@ public class UserCto extends AbstractCto {
 
   public UserRoleEto getUserRole() {
 
-    return userRole;
+    return this.userRole;
   }
 
   public void setUserRole(UserRoleEto userRole) {
@@ -43,7 +44,7 @@ public class UserCto extends AbstractCto {
 
   public List<BookingEto> getBookings() {
 
-    return bookings;
+    return this.bookings;
   }
 
   public void setBookings(List<BookingEto> bookings) {
@@ -53,7 +54,7 @@ public class UserCto extends AbstractCto {
 
   public List<DishEto> getFavourites() {
 
-    return favourites;
+    return this.favourites;
   }
 
   public void setFavourites(List<DishEto> favourites) {

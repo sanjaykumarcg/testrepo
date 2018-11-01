@@ -1,28 +1,24 @@
 package io.oasp.application.mtsj.dishmanagement.logic.api.to;
 
-import io.oasp.application.mtsj.general.common.api.to.AbstractCto;
-import io.oasp.application.mtsj.dishmanagement.common.api.Category;
-
-import java.util.List;
-import java.util.Set;
+import com.devonfw.module.basic.common.api.to.AbstractCto;
 
 /**
  * Composite transport object of Category
  */
 public class CategoryCto extends AbstractCto {
 
-	private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
-	private CategoryEto category;
+  private CategoryEto category;
 
+  public CategoryEto getCategory() {
 
-	public CategoryEto getCategory() {
-		return category;
-	}
+    return this.category;
+  }
 
-	public void setCategory(CategoryEto category) {
-		this.category = category;
-	}
+  public void setCategory(CategoryEto category) {
 
+    this.category = category;
+  }
 
 }

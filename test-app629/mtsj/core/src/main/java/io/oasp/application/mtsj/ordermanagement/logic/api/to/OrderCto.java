@@ -2,9 +2,10 @@ package io.oasp.application.mtsj.ordermanagement.logic.api.to;
 
 import java.util.List;
 
+import com.devonfw.module.basic.common.api.to.AbstractCto;
+
 import io.oasp.application.mtsj.bookingmanagement.logic.api.to.BookingEto;
 import io.oasp.application.mtsj.bookingmanagement.logic.api.to.InvitedGuestEto;
-import io.oasp.application.mtsj.general.common.api.to.AbstractCto;
 
 /**
  * Composite transport object of Order

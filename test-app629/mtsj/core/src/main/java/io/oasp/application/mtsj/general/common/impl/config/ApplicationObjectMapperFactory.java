@@ -5,10 +5,11 @@ import javax.inject.Named;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.web.csrf.CsrfToken;
 
-import com.devonfw.module.json.common.base.ObjectMapperFactory;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 
-import io.oasp.application.mtsj.general.common.api.to.PageableJsonDeserializer;
+import com.devonfw.module.json.common.base.ObjectMapperFactory;
+import com.devonfw.module.json.common.base.type.PageableJsonSerializer;
+import com.devonfw.module.json.common.base.type.PageableJsonDeserializer;
 
 /**
  * The MappingFactory class to resolve polymorphic conflicts within the issue_6 application.
@@ -22,11 +23,11 @@ public class ApplicationObjectMapperFactory extends ObjectMapperFactory {
   public ApplicationObjectMapperFactory() {
 
     super();
-    // register polymorphic mapping here - see
-    // https://github.com/oasp-forge/oasp4j-wiki/wiki/guide-json#json-and-inheritance
-    getExtensionModule().addAbstractTypeMapping(CsrfToken.class, CsrfTokenImpl.class);
-    // register Pageable deserializer
+    // see https://github.com/oasp-forge/oasp4j-wiki/wiki/guide-json#json-and-inheritance
     SimpleModule module = getExtensionModule();
+    module.addAbstractTypeMapping(CsrfToken.class, CsrfTokenImpl.class);
+	// register spring-data Pageable
+    module.addSerializer(Pageable.class, new PageableJsonSerializer());
     module.addDeserializer(Pageable.class, new PageableJsonDeserializer());
   }
 }

@@ -1,28 +1,24 @@
 package io.oasp.application.mtsj.dishmanagement.logic.api.to;
 
-import io.oasp.application.mtsj.general.common.api.to.AbstractCto;
-import io.oasp.application.mtsj.dishmanagement.common.api.Ingredient;
-
-import java.util.List;
-import java.util.Set;
+import com.devonfw.module.basic.common.api.to.AbstractCto;
 
 /**
  * Composite transport object of Ingredient
  */
 public class IngredientCto extends AbstractCto {
 
-	private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
-	private IngredientEto ingredient;
+  private IngredientEto ingredient;
 
+  public IngredientEto getIngredient() {
 
-	public IngredientEto getIngredient() {
-		return ingredient;
-	}
+    return this.ingredient;
+  }
 
-	public void setIngredient(IngredientEto ingredient) {
-		this.ingredient = ingredient;
-	}
+  public void setIngredient(IngredientEto ingredient) {
 
+    this.ingredient = ingredient;
+  }
 
 }

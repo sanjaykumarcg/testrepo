@@ -2,14 +2,14 @@ package io.oasp.application.mtsj.bookingmanagement.logic.api.to;
 
 import java.sql.Timestamp;
 
-import io.oasp.application.mtsj.bookingmanagement.common.api.Booking;
-import io.oasp.application.mtsj.bookingmanagement.common.api.datatype.BookingType;
-import io.oasp.application.mtsj.general.common.api.to.AbstractEto;
-import io.oasp.application.mtsj.general.common.api.validation.EmailExtended;
-import org.hibernate.validator.constraints.Email;
-
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
+
+import com.devonfw.module.basic.common.api.to.AbstractEto;
+
+import io.oasp.application.mtsj.bookingmanagement.common.api.Booking;
+import io.oasp.application.mtsj.bookingmanagement.common.api.datatype.BookingType;
+import io.oasp.application.mtsj.general.common.api.validation.EmailExtended;
 
 /**
  * Entity transport object of Booking

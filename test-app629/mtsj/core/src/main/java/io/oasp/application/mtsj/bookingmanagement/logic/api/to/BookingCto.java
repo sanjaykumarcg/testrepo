@@ -2,11 +2,12 @@ package io.oasp.application.mtsj.bookingmanagement.logic.api.to;
 
 import java.util.List;
 
-import io.oasp.application.mtsj.general.common.api.to.AbstractCto;
+import javax.validation.Valid;
+
+import com.devonfw.module.basic.common.api.to.AbstractCto;
+
 import io.oasp.application.mtsj.ordermanagement.logic.api.to.OrderEto;
 import io.oasp.application.mtsj.usermanagement.logic.api.to.UserEto;
-
-import javax.validation.Valid;
 
 /**
  * Composite transport object of Booking
@@ -60,7 +61,7 @@ public class BookingCto extends AbstractCto {
 
   public OrderEto getOrder() {
 
-    return order;
+    return this.order;
   }
 
   public void setOrder(OrderEto order) {
@@ -70,7 +71,7 @@ public class BookingCto extends AbstractCto {
 
   public List<OrderEto> getOrders() {
 
-    return orders;
+    return this.orders;
   }
 
   public void setOrders(List<OrderEto> orders) {
@@ -80,7 +81,7 @@ public class BookingCto extends AbstractCto {
 
   public UserEto getUser() {
 
-    return user;
+    return this.user;
   }
 
   public void setUser(UserEto user) {

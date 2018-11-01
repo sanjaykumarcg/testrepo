@@ -1,6 +1,6 @@
 package io.oasp.application.mtsj.imagemanagement.logic.api.to;
 
-import io.oasp.application.mtsj.general.common.api.to.AbstractCto;
+import com.devonfw.module.basic.common.api.to.AbstractCto;
 
 /**
  * Composite transport object of Image

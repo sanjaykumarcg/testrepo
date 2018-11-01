@@ -130,6 +130,7 @@ public class OrdermanagementImpl extends AbstractComponentFacade implements Orde
 
     // criteria.limitMaximumPageSize(MAXIMUM_HIT_LIMIT);
     List<OrderCto> ctos = new ArrayList<>();
+    Page<OrderCto> pagListTo = null;
     Page<OrderEntity> orders = getOrderDao().findOrders(criteria);
     for (OrderEntity order : orders.getContent()) {
       OrderCto cto = new OrderCto();
@@ -150,8 +151,10 @@ public class OrdermanagementImpl extends AbstractComponentFacade implements Orde
       ctos.add(cto);
     }
 
-    Pageable pagResultTo = PageRequest.of(criteria.getPageable().getPageNumber(), ctos.size());
-    Page<OrderCto> pagListTo = new PageImpl<>(ctos, pagResultTo, pagResultTo.getPageSize());
+    if (ctos.size() > 0) {
+      Pageable pagResultTo = PageRequest.of(criteria.getPageable().getPageNumber(), ctos.size());
+      pagListTo = new PageImpl<>(ctos, pagResultTo, orders.getTotalElements());
+    }
     return pagListTo;
   }
 

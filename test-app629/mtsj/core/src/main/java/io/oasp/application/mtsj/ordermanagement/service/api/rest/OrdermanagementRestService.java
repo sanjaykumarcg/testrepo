@@ -11,8 +11,6 @@ import javax.ws.rs.core.MediaType;
 
 import org.springframework.data.domain.Page;
 
-import com.devonfw.module.jpa.common.api.to.PaginatedListTo;
-
 import io.oasp.application.mtsj.ordermanagement.logic.api.Ordermanagement;
 import io.oasp.application.mtsj.ordermanagement.logic.api.to.OrderCto;
 import io.oasp.application.mtsj.ordermanagement.logic.api.to.OrderEto;

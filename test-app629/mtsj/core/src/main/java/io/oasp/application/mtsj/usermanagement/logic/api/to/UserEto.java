@@ -1,6 +1,7 @@
 package io.oasp.application.mtsj.usermanagement.logic.api.to;
 
-import io.oasp.application.mtsj.general.common.api.to.AbstractEto;
+import com.devonfw.module.basic.common.api.to.AbstractEto;
+
 import io.oasp.application.mtsj.usermanagement.common.api.User;
 
 /**
@@ -21,7 +22,7 @@ public class UserEto extends AbstractEto implements User {
   @Override
   public String getUsername() {
 
-    return username;
+    return this.username;
   }
 
   @Override
@@ -33,7 +34,7 @@ public class UserEto extends AbstractEto implements User {
   @Override
   public String getPassword() {
 
-    return password;
+    return this.password;
   }
 
   @Override
@@ -45,7 +46,7 @@ public class UserEto extends AbstractEto implements User {
   @Override
   public String getEmail() {
 
-    return email;
+    return this.email;
   }
 
   @Override
@@ -57,7 +58,7 @@ public class UserEto extends AbstractEto implements User {
   @Override
   public Long getUserRoleId() {
 
-    return userRoleId;
+    return this.userRoleId;
   }
 
   @Override

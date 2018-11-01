@@ -2,8 +2,8 @@ package io.oasp.application.mtsj.dishmanagement.logic.api.to;
 
 import java.math.BigDecimal;
 
+import com.devonfw.example.component.common.api.to.SearchCriteriaTo;
 import com.devonfw.module.basic.common.api.query.StringSearchConfigTo;
-import com.devonfw.module.jpa.common.api.to.SearchCriteriaTo;
 
 import io.oasp.application.mtsj.general.common.api.to.AbstractSearchCriteriaTo;
 

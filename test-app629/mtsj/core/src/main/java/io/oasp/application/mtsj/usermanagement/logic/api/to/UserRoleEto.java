@@ -1,6 +1,7 @@
 package io.oasp.application.mtsj.usermanagement.logic.api.to;
 
-import io.oasp.application.mtsj.general.common.api.to.AbstractEto;
+import com.devonfw.module.basic.common.api.to.AbstractEto;
+
 import io.oasp.application.mtsj.usermanagement.common.api.UserRole;
 
 /**
@@ -17,7 +18,7 @@ public class UserRoleEto extends AbstractEto implements UserRole {
   @Override
   public String getName() {
 
-    return name;
+    return this.name;
   }
 
   @Override
@@ -29,7 +30,7 @@ public class UserRoleEto extends AbstractEto implements UserRole {
   @Override
   public Boolean getActive() {
 
-    return active;
+    return this.active;
   }
 
   @Override

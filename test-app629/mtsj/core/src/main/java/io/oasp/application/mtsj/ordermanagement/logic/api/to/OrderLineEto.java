@@ -1,6 +1,7 @@
 package io.oasp.application.mtsj.ordermanagement.logic.api.to;
 
-import io.oasp.application.mtsj.general.common.api.to.AbstractEto;
+import com.devonfw.module.basic.common.api.to.AbstractEto;
+
 import io.oasp.application.mtsj.ordermanagement.common.api.OrderLine;
 
 /**
@@ -21,7 +22,7 @@ public class OrderLineEto extends AbstractEto implements OrderLine {
   @Override
   public Long getOrderId() {
 
-    return orderId;
+    return this.orderId;
   }
 
   @Override
@@ -33,7 +34,7 @@ public class OrderLineEto extends AbstractEto implements OrderLine {
   @Override
   public Long getDishId() {
 
-    return dishId;
+    return this.dishId;
   }
 
   @Override
@@ -45,7 +46,7 @@ public class OrderLineEto extends AbstractEto implements OrderLine {
   @Override
   public Integer getAmount() {
 
-    return amount;
+    return this.amount;
   }
 
   @Override
@@ -57,7 +58,7 @@ public class OrderLineEto extends AbstractEto implements OrderLine {
   @Override
   public String getComment() {
 
-    return comment;
+    return this.comment;
   }
 
   @Override

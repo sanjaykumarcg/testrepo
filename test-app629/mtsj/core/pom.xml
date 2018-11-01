@@ -39,6 +39,14 @@
       <artifactId>devon4j-beanmapping</artifactId>
     </dependency>
 
+    <dependency>
+      <groupId>com.devonfw.java.modules</groupId>
+      <artifactId>devon4j-security</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.devonfw.java.modules</groupId>
+      <artifactId>devon4j-json</artifactId>
+    </dependency>
     <!-- Use oasp4j-starter-* as soon as available via release -->
     <dependency>
       <groupId>com.devonfw.java.modules</groupId>
@@ -50,22 +58,22 @@
       <artifactId>devon4j-web</artifactId>
     </dependency>
     <!-- TODO remove below dependency after checking -->
-     <dependency>
+    <!-- <dependency>
       <groupId>com.devonfw.java.modules</groupId>
       <artifactId>devon4j-jpa</artifactId>
-    </dependency>
+      </dependency> -->
 
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>javax.servlet-api</artifactId>
       <scope>provided</scope>
     </dependency>
-    
+
     <dependency>
       <groupId>com.devonfw.java.starters</groupId>
       <artifactId>devon4j-starter-spring-data-jpa</artifactId>
     </dependency>
-    
+
 
     <dependency>
       <groupId>org.springframework</groupId>
@@ -131,7 +139,8 @@
     <dependency>
       <groupId>com.h2database</groupId>
       <artifactId>h2</artifactId>
-      <scope>test</scope>
+      <scope>runtime</scope>
+      <!-- Need to change it again to test Vaibhav -->
     </dependency>
 
     <dependency>

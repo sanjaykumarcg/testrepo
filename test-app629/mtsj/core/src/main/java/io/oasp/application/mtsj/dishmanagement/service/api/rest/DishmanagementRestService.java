@@ -12,8 +12,6 @@ import javax.ws.rs.core.MediaType;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-import com.devonfw.module.jpa.common.api.to.PaginatedListTo;
-
 import io.oasp.application.mtsj.dishmanagement.logic.api.Dishmanagement;
 import io.oasp.application.mtsj.dishmanagement.logic.api.to.CategoryEto;
 import io.oasp.application.mtsj.dishmanagement.logic.api.to.CategorySearchCriteriaTo;

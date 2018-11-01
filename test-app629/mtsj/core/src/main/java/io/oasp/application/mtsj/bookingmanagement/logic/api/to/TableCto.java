@@ -1,6 +1,6 @@
 package io.oasp.application.mtsj.bookingmanagement.logic.api.to;
 
-import io.oasp.application.mtsj.general.common.api.to.AbstractCto;
+import com.devonfw.module.basic.common.api.to.AbstractCto;
 
 /**
  * Composite transport object of Table
@@ -13,7 +13,7 @@ public class TableCto extends AbstractCto {
 
   public TableEto getTable() {
 
-    return table;
+    return this.table;
   }
 
   public void setTable(TableEto table) {

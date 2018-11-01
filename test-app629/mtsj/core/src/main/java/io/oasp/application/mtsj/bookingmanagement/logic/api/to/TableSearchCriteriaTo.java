@@ -1,6 +1,6 @@
 package io.oasp.application.mtsj.bookingmanagement.logic.api.to;
 
-import com.devonfw.module.jpa.common.api.to.SearchCriteriaTo;
+import com.devonfw.example.component.common.api.to.SearchCriteriaTo;
 
 import io.oasp.application.mtsj.general.common.api.to.AbstractSearchCriteriaTo;
 

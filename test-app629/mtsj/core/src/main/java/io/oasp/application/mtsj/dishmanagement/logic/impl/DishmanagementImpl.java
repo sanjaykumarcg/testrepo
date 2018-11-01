@@ -136,6 +136,7 @@ public class DishmanagementImpl extends AbstractComponentFacade implements Dishm
 
     // criteria.limitMaximumPageSize(MAXIMUM_HIT_LIMIT);
     List<DishCto> ctos = new ArrayList<>();
+    Page<DishCto> pagListTo = null;
     Page<DishEntity> searchResult = getDishDao().findDishs(criteria);
 
     for (DishEntity dish : searchResult.getContent()) {
@@ -150,9 +151,10 @@ public class DishmanagementImpl extends AbstractComponentFacade implements Dishm
     if (!criteria.getCategories().isEmpty()) {
       ctos = categoryFilter(ctos, criteria.getCategories());
     }
-
-    Pageable pagResultTo = PageRequest.of(criteria.getPageable().getPageNumber(), ctos.size());
-    Page<DishCto> pagListTo = new PageImpl<>(ctos, pagResultTo, pagResultTo.getPageSize());
+    if (ctos.size() > 0) {
+      Pageable pagResultTo = PageRequest.of(criteria.getPageable().getPageNumber(), ctos.size());
+      pagListTo = new PageImpl<>(ctos, pagResultTo, pagResultTo.getPageSize());
+    }
     return pagListTo;
 
   }

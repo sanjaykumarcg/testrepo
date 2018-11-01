@@ -43,23 +43,35 @@ public interface OrderRepository extends DefaultRepository<OrderEntity> {
     }
     String hostToken = criteria.getHostToken();
     if (hostToken != null && alias.getHost() != null) {
-      QueryUtil.get().whereString(query, $(alias.getBooking().getBookingToken()), hostToken,
-          criteria.getHostTokenOption());
+      /*
+       * QueryUtil.get().whereString(query, $(alias.getBooking().getBookingToken()), hostToken,
+       * criteria.getHostTokenOption());
+       */
+      query.where(Alias.$(alias.getBooking().getBookingToken()).eq(hostToken));
     }
 
     String email = criteria.getEmail();
-    if ((email != null) && !email.isEmpty()) {
-      QueryUtil.get().whereString(query, $(alias.getBooking().getEmail()), email, criteria.getEmailOption());
+    if ((email != null) && alias.getBooking() != null) {
+      /*
+       * QueryUtil.get().whereString(query, $(alias.getBooking().getEmail().toLowerCase()), email,
+       * criteria.getEmailOption());
+       */
+      query.where(Alias.$(alias.getBooking().getEmail()).toLowerCase().like(email.toLowerCase()));
+
     }
 
     String bookingToken = criteria.getBookingToken();
     if ((bookingToken != null) && !bookingToken.isEmpty()) {
-      QueryUtil.get().whereString(query, $(alias.getBooking().getBookingToken()), email,
-          criteria.getBookingTokenOption());
+      /*
+       * QueryUtil.get().whereString(query, $(alias.getBooking().getBookingToken().toLowerCase()), bookingToken,
+       * criteria.getBookingTokenOption());
+       */
+      query.where(Alias.$(alias.getBooking().getBookingToken()).toLowerCase().eq(bookingToken));
+
     }
     addOrderBy(query, alias, criteria.getPageable().getSort());
 
-    return QueryUtil.get().findPaginated(criteria.getPageable(), query, false);
+    return QueryUtil.get().findPaginated(criteria.getPageable(), query, true);
   }
 
   /**

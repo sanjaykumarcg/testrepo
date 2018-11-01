@@ -31,10 +31,10 @@
       <artifactId>devon4j-jpa-envers</artifactId>
     </dependency>
 
-  <dependency>
+  <!-- <dependency>
     <groupId>com.devonfw.java.modules</groupId>
     <artifactId>devon4j-jpa</artifactId>
-  </dependency>
+  </dependency> -->
 
     <dependency>
       <groupId>com.devonfw.java.modules</groupId>

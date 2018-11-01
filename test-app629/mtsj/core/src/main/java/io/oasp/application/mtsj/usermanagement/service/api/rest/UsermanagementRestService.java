@@ -11,8 +11,6 @@ import javax.ws.rs.core.MediaType;
 
 import org.springframework.data.domain.Page;
 
-import com.devonfw.module.jpa.common.api.to.PaginatedListTo;
-
 import io.oasp.application.mtsj.general.common.api.Usermanagement;
 import io.oasp.application.mtsj.usermanagement.logic.api.to.UserEto;
 import io.oasp.application.mtsj.usermanagement.logic.api.to.UserRoleEto;

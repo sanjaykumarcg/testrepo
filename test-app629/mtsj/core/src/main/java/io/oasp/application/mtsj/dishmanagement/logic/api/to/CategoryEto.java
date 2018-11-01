@@ -1,59 +1,68 @@
 package io.oasp.application.mtsj.dishmanagement.logic.api.to;
 
-import io.oasp.application.mtsj.general.common.api.to.AbstractEto;
-import io.oasp.application.mtsj.dishmanagement.common.api.Category;
+import com.devonfw.module.basic.common.api.to.AbstractEto;
 
-import java.util.List;
-import java.util.Set;
+import io.oasp.application.mtsj.dishmanagement.common.api.Category;
 
 /**
  * Entity transport object of Category
  */
 public class CategoryEto extends AbstractEto implements Category {
 
-	private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
-	private String name;
-	private String description;
-	private int showOrder;
+  private String name;
+
+  private String description;
+
+  private int showOrder;
 
   @Override
-	public String getName() {
-		return name;
-	}
+  public String getName() {
 
-	@Override
-	public void setName(String name) {
-		this.name = name;
-	}
+    return this.name;
+  }
+
   @Override
-	public String getDescription() {
-		return description;
-	}
+  public void setName(String name) {
 
-	@Override
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    this.name = name;
+  }
+
   @Override
-	public int getShowOrder() {
-		return showOrder;
-	}
+  public String getDescription() {
 
-	@Override
-	public void setShowOrder(int showOrder) {
-		this.showOrder = showOrder;
-	}
+    return this.description;
+  }
 
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = super.hashCode();
-					result = prime * result + ((this.name == null) ? 0 : this.name.hashCode());
-					result = prime * result + ((this.description == null) ? 0 : this.description.hashCode());
-					result = prime * result + ((Integer)showOrder).hashCode();
-				        return result;
-    }
+  @Override
+  public void setDescription(String description) {
+
+    this.description = description;
+  }
+
+  @Override
+  public int getShowOrder() {
+
+    return this.showOrder;
+  }
+
+  @Override
+  public void setShowOrder(int showOrder) {
+
+    this.showOrder = showOrder;
+  }
+
+  @Override
+  public int hashCode() {
+
+    final int prime = 31;
+    int result = super.hashCode();
+    result = prime * result + ((this.name == null) ? 0 : this.name.hashCode());
+    result = prime * result + ((this.description == null) ? 0 : this.description.hashCode());
+    result = prime * result + ((Integer) this.showOrder).hashCode();
+    return result;
+  }
 
   @Override
   public boolean equals(Object obj) {
@@ -69,23 +78,23 @@ public class CategoryEto extends AbstractEto implements Category {
       return false;
     }
     CategoryEto other = (CategoryEto) obj;
-		if (this.name == null) {
-		  if (other.name != null) {
-			return false;
-		  }
-		} else if(!this.name.equals(other.name)){
-		  return false;
-		}
-		if (this.description == null) {
-		  if (other.description != null) {
-			return false;
-		  }
-		} else if(!this.description.equals(other.description)){
-		  return false;
-		}
-		if(this.showOrder != other.showOrder) {
-			return false;
-		}
-        return true;
+    if (this.name == null) {
+      if (other.name != null) {
+        return false;
+      }
+    } else if (!this.name.equals(other.name)) {
+      return false;
+    }
+    if (this.description == null) {
+      if (other.description != null) {
+        return false;
+      }
+    } else if (!this.description.equals(other.description)) {
+      return false;
+    }
+    if (this.showOrder != other.showOrder) {
+      return false;
+    }
+    return true;
   }
 }

@@ -2,7 +2,7 @@ package io.oasp.application.mtsj.usermanagement.logic.api.to;
 
 import java.util.List;
 
-import io.oasp.application.mtsj.general.common.api.to.AbstractCto;
+import com.devonfw.module.basic.common.api.to.AbstractCto;
 
 /**
  * Composite transport object of UserRole
@@ -17,7 +17,7 @@ public class UserRoleCto extends AbstractCto {
 
   public UserRoleEto getUserRole() {
 
-    return userRole;
+    return this.userRole;
   }
 
   public void setUserRole(UserRoleEto userRole) {
@@ -27,7 +27,7 @@ public class UserRoleCto extends AbstractCto {
 
   public List<UserEto> getUsers() {
 
-    return users;
+    return this.users;
   }
 
   public void setUsers(List<UserEto> users) {

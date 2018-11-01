@@ -2,7 +2,8 @@ package io.oasp.application.mtsj.dishmanagement.logic.api.to;
 
 import java.util.List;
 
-import io.oasp.application.mtsj.general.common.api.to.AbstractCto;
+import com.devonfw.module.basic.common.api.to.AbstractCto;
+
 import io.oasp.application.mtsj.imagemanagement.logic.api.to.ImageEto;
 
 /**
@@ -55,7 +56,7 @@ public class DishCto extends AbstractCto {
    */
   public ImageEto getImage() {
 
-    return image;
+    return this.image;
   }
 
   /**

@@ -1,7 +1,7 @@
 package io.oasp.application.mtsj.imagemanagement.logic.api.to;
 
+import com.devonfw.example.component.common.api.to.SearchCriteriaTo;
 import com.devonfw.module.basic.common.api.query.StringSearchConfigTo;
-import com.devonfw.module.jpa.common.api.to.SearchCriteriaTo;
 
 import io.oasp.application.mtsj.general.common.api.to.AbstractSearchCriteriaTo;
 import io.oasp.application.mtsj.imagemanagement.common.api.datatype.ContentType;

@@ -140,6 +140,7 @@ public class BookingmanagementImpl extends AbstractComponentFacade implements Bo
   public Page<BookingCto> findBookingCtos(BookingSearchCriteriaTo criteria) {
 
     // criteria.limitMaximumPageSize(MAXIMUM_HIT_LIMIT);
+    Page<BookingCto> pagListTo = null;
     Page<BookingEntity> bookings = getBookingDao().findBookings(criteria);
     List<BookingCto> ctos = new ArrayList<>();
     for (BookingEntity entity : bookings.getContent()) {
@@ -153,8 +154,10 @@ public class BookingmanagementImpl extends AbstractComponentFacade implements Bo
       ctos.add(cto);
 
     }
-    Pageable pagResultTo = PageRequest.of(criteria.getPageable().getPageNumber(), ctos.size());
-    Page<BookingCto> pagListTo = new PageImpl<>(ctos, pagResultTo, pagResultTo.getPageSize());
+    if (ctos.size() > 0) {
+      Pageable pagResultTo = PageRequest.of(criteria.getPageable().getPageNumber(), ctos.size());
+      pagListTo = new PageImpl<>(ctos, pagResultTo, bookings.getTotalElements());
+    }
     return pagListTo;
   }
 

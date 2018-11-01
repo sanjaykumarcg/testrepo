@@ -1,6 +1,7 @@
 package io.oasp.application.mtsj.ordermanagement.logic.api.to;
 
-import io.oasp.application.mtsj.general.common.api.to.AbstractEto;
+import com.devonfw.module.basic.common.api.to.AbstractEto;
+
 import io.oasp.application.mtsj.ordermanagement.common.api.Order;
 
 /**

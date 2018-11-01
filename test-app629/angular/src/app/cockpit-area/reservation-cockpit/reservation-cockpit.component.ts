@@ -26,7 +26,7 @@ export class ReservationCockpitComponent implements OnInit {
 
   pageable: Pageable = {
     pageSize: 8,
-    pageNumber: 1,
+    pageNumber: 0,
     //total: 1,
   };
 
@@ -67,15 +67,17 @@ export class ReservationCockpitComponent implements OnInit {
   }
 
   filter(): void {
-    this.pageable.pageNumber = 1;
+    this.pageable.pageNumber = 0;
     this.applyFilters();
   }
 
   applyFilters(): void {
     this.waiterCockpitService.getReservations(this.pageable, this.sorting, this.filters)
       .subscribe((data: any) => {
+        console.log(this.filters);
+        console.log(data);
         this.reservations = data.content;
-        //this.totalReservations = data.pageable.total;
+        this.totalReservations = data.totalElements;
       });
   }
 
@@ -87,7 +89,8 @@ export class ReservationCockpitComponent implements OnInit {
   page(pagingEvent: IPageChangeEvent): void {
     this.pageable = {
       pageSize: pagingEvent.pageSize,
-      pageNumber: pagingEvent.page,
+      pageNumber: pagingEvent.page - 1,
+      sort: this.pageable.sort,
       //total: 1,
     };
     this.applyFilters();
@@ -95,7 +98,10 @@ export class ReservationCockpitComponent implements OnInit {
 
   sort(sortEvent: ITdDataTableSortChangeEvent): void {
     this.sorting = [];
-    this.sorting.push({ 'property': sortEvent.name.split('.').pop(), 'direction': '' + sortEvent.order });
+    this.sorting.push({
+      property: sortEvent.name.split('.').pop(),
+      direction: '' + sortEvent.order,
+    });
     this.applyFilters();
   }
 

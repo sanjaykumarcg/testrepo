@@ -2,8 +2,9 @@ package io.oasp.application.mtsj.dishmanagement.logic.api.to;
 
 import java.math.BigDecimal;
 
+import com.devonfw.module.basic.common.api.to.AbstractEto;
+
 import io.oasp.application.mtsj.dishmanagement.common.api.Ingredient;
-import io.oasp.application.mtsj.general.common.api.to.AbstractEto;
 
 /**
  * Entity transport object of Ingredient

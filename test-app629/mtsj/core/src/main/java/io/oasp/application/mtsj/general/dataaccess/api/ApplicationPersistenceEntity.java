@@ -4,10 +4,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
-import javax.persistence.Transient;
 import javax.persistence.Version;
 
-import com.devonfw.module.jpa.dataaccess.api.MutablePersistenceEntity;
+import com.devonfw.module.basic.common.api.entity.PersistenceEntity;
 
 import io.oasp.application.mtsj.general.common.api.ApplicationEntity;
 
@@ -16,7 +15,7 @@ import io.oasp.application.mtsj.general.common.api.ApplicationEntity;
  *
  */
 @MappedSuperclass
-public abstract class ApplicationPersistenceEntity implements ApplicationEntity, MutablePersistenceEntity<Long> {
+public abstract class ApplicationPersistenceEntity implements ApplicationEntity, PersistenceEntity<Long> {
 
   private static final long serialVersionUID = 1L;
 
@@ -67,21 +66,22 @@ public abstract class ApplicationPersistenceEntity implements ApplicationEntity,
     this.modificationCounter = version;
   }
 
-  @Override
-  @Transient
-  public Number getRevision() {
-
-    return this.revision;
-  }
+  /*
+   * @Override
+   * 
+   * @Transient public Number getRevision() {
+   * 
+   * return this.revision; }
+   */
 
   /**
    * @param revision the revision to set
    */
-  @Override
-  public void setRevision(Number revision) {
-
-    this.revision = revision;
-  }
+  /*
+   * @Override public void setRevision(Number revision) {
+   * 
+   * this.revision = revision; }
+   */
 
   @Override
   public String toString() {

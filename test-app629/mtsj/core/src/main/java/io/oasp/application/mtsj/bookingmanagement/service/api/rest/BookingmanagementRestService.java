@@ -12,8 +12,6 @@ import javax.ws.rs.core.MediaType;
 
 import org.springframework.data.domain.Page;
 
-import com.devonfw.module.jpa.common.api.to.PaginatedListTo;
-
 import io.oasp.application.mtsj.bookingmanagement.logic.api.Bookingmanagement;
 import io.oasp.application.mtsj.bookingmanagement.logic.api.to.BookingCto;
 import io.oasp.application.mtsj.bookingmanagement.logic.api.to.BookingEto;
