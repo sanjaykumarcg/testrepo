@@ -40,21 +40,15 @@ export class MenuService {
     const categories: { id: string }[] = Object.keys(filters.categories)
         .filter((categoryKey: string) => filters.categories[categoryKey])
         .map((categoryKey: string) => ({id: categoryNameToServerId[categoryKey].toString()}));
-    
-    //alert(filters.sort.property);
-    //alert(filters.sort.direction);
-   // alert(pageable.sort);
+    if (filters.sort.property == null) {
+     filters.sort = null;
+      pageable.sort = null;
+   } 
 
-    console.log(filters);
-    console.log(pageable);
     return {
         categories,
         searchBy: filters.searchBy,
         pageable,
-        /*sort: [{
-          name: filters.sort.name,
-          direction: filters.sort.direction,
-        }],*/
         maxPrice: filters.maxPrice,
         minLikes: filters.minLikes,
         isFav: undefined, // TODO: what is this field? It was present in interface but setting it will cause errors ...

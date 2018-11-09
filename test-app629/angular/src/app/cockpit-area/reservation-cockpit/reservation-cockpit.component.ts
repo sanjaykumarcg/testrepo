@@ -74,8 +74,6 @@ export class ReservationCockpitComponent implements OnInit {
   applyFilters(): void {
     this.waiterCockpitService.getReservations(this.pageable, this.sorting, this.filters)
       .subscribe((data: any) => {
-        console.log(this.filters);
-        console.log(data);
         this.reservations = data.content;
         this.totalReservations = data.totalElements;
       });

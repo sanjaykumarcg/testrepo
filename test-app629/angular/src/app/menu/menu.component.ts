@@ -46,14 +46,5 @@ export class MenuComponent {
     this.dishes$ = this.menuService.getDishes(composedFilters).pipe(
       map((res) => res.content),
     );
-   /* this.menuService.getDishes(composedFilters).subscribe(
-      data=>{
-        console.log(data);
-      },
-      (error)=>{
-        console.log(error);
-      }
-    )*/
-    console.log(this.dishes$);
   }
 }

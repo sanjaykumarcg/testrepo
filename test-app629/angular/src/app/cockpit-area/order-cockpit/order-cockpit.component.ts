@@ -69,9 +69,6 @@ export class OrderCockpitComponent implements OnInit {
   applyFilters(): void {
     this.waiterCockpitService.getOrders(this.pageable, this.sorting, this.filters)
       .subscribe((data: any) => {
-        //console.log(this.filters);
-        console.log(data);
-        console.log(data);
         this.orders = data.content;
         this.totalOrders = data.totalElements;
       });
@@ -95,10 +92,10 @@ export class OrderCockpitComponent implements OnInit {
   sort(sortEvent: ITdDataTableSortChangeEvent): void {
     this.sorting = [];
     this.sorting.push({
-      property: sortEvent.name.split('.').pop(),
+      property: sortEvent.name,
       direction: '' + sortEvent.order,
     });
-    this.applyFilters();
+   this.applyFilters();
   }
 
   selected(selection: ITdDataTableSelectAllEvent): void {
